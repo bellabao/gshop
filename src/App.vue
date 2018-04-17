@@ -9,6 +9,11 @@
 <script>
   import FooterGuide from './components/FooterGuide/FooterGuide.vue'
   export default {
+    mounted(){
+      this.$store.dispatch('getAdvertisement');
+      this.$store.dispatch('getClassify');
+      this.$store.dispatch('getBrand')
+    },
     components:{
       FooterGuide
     }
