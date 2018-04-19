@@ -1,5 +1,6 @@
 export default {
   index:{},
   classify:{},
-  brand:{}
+  brand:{},
+  carousel:[]
 }

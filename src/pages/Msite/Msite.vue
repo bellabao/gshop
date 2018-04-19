@@ -25,7 +25,7 @@
               </a>
             </div>
           </div>
-          <div class="content_container" ref="epet">
+          <div class="content_container">
             <div class="content_epet" >
               <ul class="epet_list">
                 <li class="epet_li on" v-for="(menu,index) in index.menus" :key="index">
@@ -42,116 +42,48 @@
       <div class="bodyEpet">
         <div class="swiper_epet">
           <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><a href="#"><img src="./img/02.jpg" alt=""></a></div>
-              <div class="swiper-slide"><a href="#"><img src="./img/002.jpg" alt=""></a></div>
-              <div class="swiper-slide"><a href="#"><img src="./img/003.jpg" alt=""></a></div>
-              <div class="swiper-slide"><a href="#"><img src="./img/005.jpg" alt=""></a></div>
-              <div class="swiper-slide"><a href="#"><img src="./img/007.jpg" alt=""></a></div>
-              <div class="swiper-slide"><a href="#"><img src="./img/008.jpg" alt=""></a></div>
+            <div class="swiper-wrapper" v-if="carousel.data">
+              <div class="swiper-slide" v-for="(carousel,index) in carousel.data[1].value">
+                <a href="#">
+                  <img :src="carousel.image" alt="">
+                </a>
+              </div>
+
             </div>
             <div class="swiper-pagination"></div>
           </div>
         </div>
-        <div class="msite_nav border-1px">
-          <a href="javascript:" class="link_to_food">
+        <div class="msite_nav border-1px" v-if="index.datas">
+          <a href="javascript:" class="link_to_food" v-for="(menu,index) in index.datas[1].menus" :key="index">
             <div class="epet_container">
-              <img src="./img/init_7.jpg">
+              <img :src="menu.image">
             </div>
-
           </a>
-          <a href="javascript:" class="link_to_food">
-            <div class="epet_container">
-              <img src="./img/init_34.jpg">
-            </div>
 
-          </a>
-          <a href="javascript:" class="link_to_food">
-            <div class="epet_container">
-              <img src="./img/init_24.jpg">
-            </div>
-
-          </a>
-          <a href="javascript:" class="link_to_food">
-            <div class="epet_container">
-              <img src="./img/init_14.jpg">
-            </div>
-
-          </a>
-          <a href="javascript:" class="link_to_food">
-            <div class="epet_container">
-              <img src="./img/init_17.jpg">
-            </div>
-
-          </a>
-          <a href="javascript:" class="link_to_food">
-            <div class="epet_container">
-              <img src="./img/init_4.jpg">
-            </div>
-
-          </a>
-          <a href="javascript:" class="link_to_food">
-            <div class="epet_container">
-              <img src="./img/init_20.jpg">
-            </div>
-
-          </a>
-          <a href="javascript:" class="link_to_food">
-            <div class="epet_container">
-              <img src="./img/init_16.jpg">
-            </div>
-
-          </a>
-          <a href="javascript:" class="link_to_food">
-            <div class="epet_container">
-              <img src="./img/init_3.jpg">
-            </div>
-
-          </a>
-          <a href="javascript:" class="link_to_food">
-            <div class="epet_container">
-              <img src="./img/init_19.jpg">
-            </div>
-
-          </a>
         </div>
-        <div class="msite_xinren">
-          <a href="#"><img src="./img/xinren.gif" alt="新人专享"></a>
+        <div class="msite_xinren" v-if="carousel.data">
+          <a href="#">
+            <img :src="carousel.data[2438].value[0].image" alt="新人专享">
+          </a>
         </div>
         <div class="epet_content">
-          <div class="epet_top">
+          <div class="epet_top"  v-if="carousel.data">
             <div class="epet_top_img">
-              <img src="./img/gengxin.png" alt="每日更新">
+              <img :src="carousel.data['3'].surprise_icon.image" alt="每日更新">
             </div>
-            <div class="epet_top_content">
-              本场开始：20：00
-            </div>
+            <div class="epet_top_content">{{carousel.data['3'].title}} </div>
             <div class="epet_top_images">
-              <img src="./img/gengduo.png" alt="更多">
+              <img :src="carousel.data['3'].right_image.image" alt="更多">
             </div>
           </div>
-          <div class="epet_bottom" ref="ava" >
-           <div class="abs">
-             <div class="epet_bottom_img">
-               <img src="./img/33.jpg" alt="">
-               <span class="abx">￥28.80</span>
-               <span class="abd">省19.20</span>
+          <div class="epet_bottom">
+           <div class="abs" v-if="carousel.data">
+             <div class="epet_bottom_img" v-for="(carousel,index) in carousel.data[3].goods" :key="index" >
+               <img :src="carousel.image.image" alt="">
+               <span class="abx">￥{{carousel.sale_price}}</span>
+               <span class="abd">{{carousel.little_price}}</span>
              </div>
-             <div class="epet_bottom_img">
-               <img src="./img/9.jpg" alt="">
-               <span class="abx">￥67.89</span>
-               <span class="abd">省67.89</span>
-             </div>
-             <div class="epet_bottom_img">
-               <img src="./img/3.jpg" alt="">
-               <span class="abx">￥7.0</span>
-               <span class="abd">省88.0</span>
-             </div>
-             <div class="epet_bottom_img">
-               <img src="./img/4.jpg" alt="">
-               <span class="abx">￥52.80</span>
-               <span class="abd">省19.20</span>
-             </div>
+
            </div>
           </div>
           <div class="line"></div>
@@ -178,48 +110,36 @@
           </div>
           <div class="page_abc">
             <a href="#">
-              <img src="./img/init_32.jpg" alt="">
+              <img src="https://img2.epetbar.com/nowater/2018-04/13/10/593316771f91fb38ddef79deb3d6f624.jpg" alt="">
             </a>
           </div>
-          <div class="page_abd">
+          <div class="page_abd" v-if="index.datas">
             <div class="page_abe">
               <a href="#" class="page_abe_left">
-                <img src="./img/pic/init_31.jpg" alt="">
+                <img src="https://img2.epetbar.com/nowater/2017-12/20/15/38688d8d92c7da7aae64eda8b8bb3a94.jpg" alt="">
               </a>
               <a href="#" class="page_abe_right">
                 <img src="./img/pic/1.png" alt="">
               </a>
             </div>
-            <div class="page_img">
-              <a href="#">
-                <img src="https://img1.epetbar.com/2018-04/15/22/822b52d6f9a909d5e427efe9cef5a91e.jpg" alt="">
-              </a>
-            </div>
-            <div class="page_abd_text">
-              <span class="span_text"> SodaPup 易拉罐漏食狗玩具 口感软弹洁牙护牙</span>
-              <div class="page_abd_bottom">
-                <span>1048</span>
-                <span>|</span>
-                <span>01:29</span>
-              </div>
-            </div>
+            <video-item  :videoData="index.datas['10'].value[0]"/>
             <div class="line"></div>
           </div>
-          <div class="page_acd">
-            <div class="page_acd_left">
+          <div class="page_acd" v-if="carousel.data">
+            <div class="page_acd_left" >
               <a href="#" class="acd_left_top">
-                <img src="https://img2.epetbar.com/nowater/2018-02/05/14/4c32811744e04f6b63632b42a0d5325d.jpg" alt="">
+                <img :src="carousel.data[3110].content_images[0][0].image" alt="">
               </a>
               <a href="#" class="acd_left_bottom">
-                <img src="https://img2.epetbar.com/nowater/2018-02/05/14/fa66a0c8437b6fb8137c58d9b6ccb1c6.jpg" alt="">
+                <img :src="carousel.data[3110].content_images[0][1].image" alt="">
               </a>
             </div>
             <div class="page_acd_right">
               <a href="#" class="acd_right_top">
-                <img src="https://img2.epetbar.com/nowater/2018-02/05/14/9aa462284ec8a79694fa5c9ce062d5ab.jpg" alt="">
+                <img :src="carousel.data[3110].content_images[1][0].image" alt="">
               </a>
               <a href="#" class="acd_right_bottom">
-                <img src="https://img2.epetbar.com/nowater/2018-02/05/14/6e3a2cb186e1028d481940c42fb54732.jpg" alt="">
+                <img :src="carousel.data[3110].content_images[1][1].image" alt="">
               </a>
             </div>
             <div class="line"></div>
@@ -367,7 +287,7 @@
               </div>
             </div>
             <div class="page_acc_three">
-              <div class="page_abd">
+              <div class="page_abd" v-if="index.datas">
                 <div class="page_abe">
                   <a href="#" class="page_abe_left">
                     <img src="./img/pic/init_15.jpg" alt="">
@@ -376,22 +296,10 @@
                     <img src="./img/pic/1.png" alt="">
                   </a>
                 </div>
-                <div class="page_img">
-                  <a href="#">
-                    <img src="https://img1.epetbar.com/2017-12/13/16/5837d50b4993a5de2aff2b26ce8cf3d5.png" alt="">
-                  </a>
-                </div>
-                <div class="page_abd_text">
-                  <span class="span_text">第3期-汪星人你的大姨妈来了吗？</span>
-                  <div class="page_abd_bottom">
-                    <span>99048</span>
-                    <span>|</span>
-                    <span>01:29</span>
-                  </div>
-                </div>
+                <VideoItem :videoData="index.datas['47'].value[0]"/>
                 <div class="line"></div>
               </div>
-              <div class="page_abd">
+              <div class="page_abd" v-if="index.datas">
                 <div class="page_abe">
                   <a href="#" class="page_abe_left">
                     <img src="./img/pic/init_11.jpg" alt="">
@@ -400,19 +308,7 @@
                     <img src="./img/pic/1.png" alt="">
                   </a>
                 </div>
-                <div class="page_img">
-                  <a href="#">
-                    <img src="https://img1.epetbar.com/2018-04/10/16/98507cf93340adddcea4a44701891a4b.png" alt="">
-                  </a>
-                </div>
-                <div class="page_abd_text">
-                  <span class="span_text">一个位德艺双馨老艺术家（指的是就我）的日常</span>
-                  <div class="page_abd_bottom">
-                    <span>5548</span>
-                    <span>|</span>
-                    <span>03:29</span>
-                  </div>
-                </div>
+                <VideoItem :videoData="index.datas['50'].value[0]"/>
               </div>
 
             </div>
@@ -422,9 +318,9 @@
       </div>
       <div class="bottom">
         <div class="bottom_text">
-          <div class="footer_img">
+          <div class="footer_img" v-if="index.datas">
             <a>
-              <img src="https://img2.epetbar.com/nowater/2017-12/13/11/be84f01e893b0e631d8512566eb79117.jpg">
+              <img :src="index.datas[52].content_images[0][0].image">
             </a>
           </div>
           <div class="footer_content">
@@ -449,24 +345,37 @@
   import Swiper from 'swiper'
   import 'swiper/dist/css/swiper.min.css'
   import {mapState} from 'vuex'
+  import VideoItem from '../../components/VideoItem/VideoItem.vue'
   export default {
     computed:{
-      ...mapState(['index'])
+      ...mapState(['index','carousel'])
     },
     created(){
       this.$nextTick(()=>{
-        new BScorll(this.$refs.epet, {scrollX:true})
-        new BScorll(this.$refs.ava, {scrollX:true})
-        new Swiper(".swiper-container",{
-          loop:true,
-          autoplay:true,
-          pagination: {
-            el: '.swiper-pagination',
-          }
-        })
+        new BScorll('.content_container', {scrollX:true})
       })
+    },
+    watch: {
+      carousel () {
+        this.$nextTick(() => {
+          new BScorll('.epet_bottom', {scrollX:true}),
+          new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+              disableOnInteraction: false,
+            },
+
+            pagination: { // 指定分页器容器
+              el: '.swiper-pagination',
+            }
+          })
+        })
+      }
+    },
+    components:{
+      VideoItem
     }
-  }
+    }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixins.styl"
@@ -497,7 +406,7 @@
           flex-direction row
           .content_header_left
             margin-top 10px
-            width 22%
+            width 30%
             span
               font-size 12px
               text-align center
@@ -510,6 +419,8 @@
               border-right 4px solid transparent
               border-left 4px solid transparent
               color gray
+              position absolute
+              left 75px
           .content_header_content
             width 60%
             flex 1
@@ -697,9 +608,6 @@
          height 87px
          display inline-block
          position relative
-       .page_img
-         width 100%
-         height 210px
         .page_abe_left
           position absolute
           height 77px
@@ -710,19 +618,6 @@
           top 5px
           width 20%
           height 55px
-       .page_abd_text
-         margin 10px 0
-         text-align center
-         display flex
-         flex-direction column
-        .span_text
-          margin-bottom 5px
-          text-align center
-          font-size 14px
-        .page_abd_bottom
-          font-size 12px
-          text-align center
-          margin-right 5px
        .line
         height 10px
         width 100%

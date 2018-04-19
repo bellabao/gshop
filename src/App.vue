@@ -12,7 +12,8 @@
     mounted(){
       this.$store.dispatch('getAdvertisement');
       this.$store.dispatch('getClassify');
-      this.$store.dispatch('getBrand')
+      this.$store.dispatch('getBrand');
+      this.$store.dispatch('getCarousel')
     },
     components:{
       FooterGuide

@@ -4,7 +4,9 @@ import Msite from '../pages/Msite/Msite.vue'
 import  Classify from '../pages/Classify/Classify.vue'
 import  ShopCarts from '../pages/ShopCarts/ShopCarts.vue'
 import MyEpet from '../pages/MyEpet/MyEpet.vue'
-import FooterGuide from '../components/FooterGuide/FooterGuide.vue'
+import LeftClass from '../pages/Classify/LeftClass/LeftClass.vue'
+import RightClass from '../pages/Classify/RightClass/RightClass.vue'
+
 Vue.use(VueRouter);
 export default new VueRouter({
   routes:[
@@ -19,6 +21,16 @@ export default new VueRouter({
     {
       path: '/classify',
       component: Classify,
+      children:[
+        {
+          path: '/classify/leftClass',
+          component: LeftClass
+        },
+        {
+          path: '/classify/rightClass',
+          component: RightClass
+        },
+      ]
     },
     {
       path: '/shopCarts',
@@ -27,7 +39,7 @@ export default new VueRouter({
     {
       path: '/myEpet',
       component: MyEpet,
-    },
+    }
 
   ]
 })
