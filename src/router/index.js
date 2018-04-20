@@ -6,7 +6,7 @@ import  ShopCarts from '../pages/ShopCarts/ShopCarts.vue'
 import MyEpet from '../pages/MyEpet/MyEpet.vue'
 import LeftClass from '../pages/Classify/LeftClass/LeftClass.vue'
 import RightClass from '../pages/Classify/RightClass/RightClass.vue'
-
+import AllMenu from '../pages/AllMenu/AllMenu.vue'
 Vue.use(VueRouter);
 export default new VueRouter({
   routes:[
@@ -22,6 +22,10 @@ export default new VueRouter({
       path: '/classify',
       component: Classify,
       children:[
+        {
+          path: '/',
+          redirect: '/classify/leftClass'
+        },
         {
           path: '/classify/leftClass',
           component: LeftClass
@@ -39,7 +43,11 @@ export default new VueRouter({
     {
       path: '/myEpet',
       component: MyEpet,
-    }
+    },
+    {
+      path: '/allMenu',
+      component: AllMenu,
+    },
 
   ]
 })

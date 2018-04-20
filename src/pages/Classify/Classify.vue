@@ -19,13 +19,9 @@
     </div>
 </template>
 <script>
-  import BScroll from 'better-scroll'
+
   export default {
-    mounted(){
-      this.$nextTick(()=>{
-        new BScroll('.bottom_list',{scrollY:true})
-      })
-    }
+
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">

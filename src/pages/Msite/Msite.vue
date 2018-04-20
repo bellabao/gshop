@@ -1,12 +1,12 @@
 <template>
     <div class="msite">
-      <div class="container">
-        <div class="header">
+      <div class="msicontainer">
+        <div class="msiheader">
           <a href="#">
             <img class="header_img" src="./img/01.jpg" alt="下载App">
           </a>
         </div>
-        <div class="content">
+        <div class="msicontent">
           <div class="content_header">
             <div class="content_header_left">
               <a href="#">
@@ -379,14 +379,14 @@
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixins.styl"
-    .container
+    .msicontainer
       box-sizing border-box
       width 100%
       position fixed
       z-index 100
       left 0
       top 0
-      .header
+      .msiheader
         background-color #02a774
         width 100%
         height 55px
@@ -394,7 +394,7 @@
           display block
           width 100%
           height 100%
-      .content
+      .msicontent
         bottom-border-1px(#e4e4e4)
         background #fff
         .content_header

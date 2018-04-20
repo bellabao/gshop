@@ -13,7 +13,8 @@
       this.$store.dispatch('getAdvertisement');
       this.$store.dispatch('getClassify');
       this.$store.dispatch('getBrand');
-      this.$store.dispatch('getCarousel')
+      this.$store.dispatch('getCarousel');
+      this.$store.dispatch('getAllbrand')
     },
     components:{
       FooterGuide

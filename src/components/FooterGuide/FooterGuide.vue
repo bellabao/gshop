@@ -8,7 +8,7 @@
       </a>
       <a href="javascript:;" class="guide_item " @click="goTo('/classify')" :class="{on:isCurrent('/classify')}">
         <span class="item_icon">
-          <i class="iconfont icon-svgclassify"></i>
+          <i class="iconfont icon-fenlei"></i>
         </span>
         <span>分类</span>
       </a>

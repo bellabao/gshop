@@ -8,6 +8,8 @@ export const reqAdvertisement=()=>ajax('/api/index')
 export const reqClassify=()=>ajax('/api/classify')
 //获取E宠品牌列表
 export  const reqBrand=()=>ajax('/api/brand')
+//获取E宠品牌全部列表
+export const reqAllbrand=()=>ajax('/api/allbrand')
 //获取轮播图广告和每日疯抢
 export const reqCarousel=()=>ajax('/api/carousel')
 //获取一次性验证码
