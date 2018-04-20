@@ -1,5 +1,5 @@
-import {reqAdvertisement,reqClassify,reqBrand,reqCarousel,reqAllbrand} from '../api/ajax'
-import {RECEIVE_ADVERTISEMENT,RECEIVE_CLASSIFY,RECEIVE_BRAND,RECEIVE_ALLBRAND,RECEIVE_CAROUSEL} from './mutation-types'
+import {reqAdvertisement,reqClassify,reqBrand,reqCarousel,reqAllbrand,reqUserInfo} from '../api/ajax'
+import {RECEIVE_ADVERTISEMENT,RECEIVE_CLASSIFY,RECEIVE_BRAND,RECEIVE_ALLBRAND,RECEIVE_CAROUSEL,RECEIVE_USER_INFO} from './mutation-types'
 export default {
   //获取E宠主页广告列表
    async getAdvertisement({commit}){
@@ -46,6 +46,17 @@ export default {
        let allbrand=result.data;
        commit(RECEIVE_ALLBRAND,{allbrand})
      }
+  },
+  //
+  recordUserInfo({commit}, userInfo) {
+    commit(RECEIVE_USER_INFO, {userInfo})
+  },
+  async getUserInfo({commit}){
+    const result=await reqUserInfo();
+    if (result.code ===0){
+      let userInfo=result.data;
+      commit(RECEIVE_ALLBRAND,{userInfo:result.data})
+    }
   }
 
 }

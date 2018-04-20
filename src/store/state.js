@@ -3,5 +3,6 @@ export default {
   classify:{},
   brand:{},
   carousel:{},
-  allbrand:{}
+  allbrand:{},
+  userInfo:{}
 }

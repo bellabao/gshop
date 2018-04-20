@@ -92,13 +92,11 @@
             probeType:2
           });
           this.leftscroll.on('scroll',(pos)=>{
-            console.log(this.scrollY,'scroll')
             this.scrollY=Math.abs(pos.y)
 
           })
           this.leftscroll.on('scrollEnd',(pos)=>{
             this.scrollY=Math.abs(pos.y)
-            console.log(this.scrollY,'end')
           })
         })
       },50)
